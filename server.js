@@ -7,7 +7,10 @@ var http = require("http"),                           //Import Node.js modules
 
 http.createServer(function(request, response) {       //Create server 
   var name = url.parse(request.url).pathname;           //Parse URL
+  console.log(name);
   var filename = path.join(process.cwd(), name);        //Create filename
+
+  http.get()
   fs.readFile(filename, "binary", function(err, file) { //Read file
     if(err) {                                         //Tracking Errors
         response.writeHead(500, {"Content-Type": "text/plain"});
